@@ -1,19 +1,4 @@
 package com.fastcampus.fastcampusprojectboard.domain;
-
-<<<<<<< HEAD
-import java.time.LocalDateTime;
-
-public class Article {
-    private Long id;
-    private String title;
-    private String content;
-    private String hashtag;
-
-    private LocalDateTime createdAt;
-    private String createdBy;
-    private LocalDateTime updatedAt;
-    private String updatedBy;
-=======
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -85,5 +70,4 @@ public class Article {
     public int hashCode() {
         return Objects.hash(id);
     }
->>>>>>> #11-db
 }
