@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -22,20 +23,22 @@ import java.util.Set;
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy")
 })
+@EntityListeners(AuditingEntityListener.class)
 @Entity
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // 유저가 접근하지 못하도록 특정 항목만 setter줌
-    @Setter @Column(nullable = false) private String title;
-    @Setter @Column(nullable = false, length = 10000) private String content;
-    @Setter private String hashtag;
+    @Setter @Column(nullable = false, length = 1000) private String title; //제목
+    @Setter @Column(nullable = false, length = 10000) private String content; //내용
+    @Setter private String hashtag; //해시태그
 
-    //순환참조 끊어줌.
+    //순환참조 끊어줌. Article <-> ArticelComment 둘다 참조하고 있어서. 보통 Article 쪽에서 끊어줌
     @ToString.Exclude
     //양방향 데이터, cascading: 댓글들 다 같이 삭제. 에디팅이 어려워서 삭제하는 경우도 있음
-    @OrderBy("id")
+    //실무에서는 양방향 데이터 잘 안씀. 한쪽에서만 써주자
+    @OrderBy
     @OneToMany(mappedBy = "article", cascade =CascadeType.ALL ) private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
     //jpa oditting
@@ -52,7 +55,7 @@ public class Article {
         this.hashtag = hashtag;
     }
 
-    public Article of(String title, String content, String hashtag) {
+    public static Article of(String title, String content, String hashtag) {
         return new Article(title, content,hashtag);
     }
 
