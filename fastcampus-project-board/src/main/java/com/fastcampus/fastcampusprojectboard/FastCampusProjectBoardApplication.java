@@ -11,3 +11,6 @@ public class FastCampusProjectBoardApplication {
 	}
 
 }
+
+//service > add-service > run configuration type> spring boot
+//cmd + shift + a : 파일찾기
