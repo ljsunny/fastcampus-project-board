@@ -25,18 +25,13 @@ import java.util.Objects;
 
 //도메인 이름은 단수, 테이블 이름 단수
 @Entity // 엔티티 등록
-public class ArticleComment {
+public class ArticleComment extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //여러개 - 한개,  optional=false : 필수값, cascade : none=> default
     @Setter @ManyToOne(optional = false) private Article article; //게시글 (ID)
     @Setter @Column(nullable = false,length = 500) private String content; //본문
-
-    @CreatedDate @Column(nullable = false) private LocalDateTime createdAt;
-    @CreatedBy @Column(nullable = false, length = 100) private String createdBy;
-    @LastModifiedDate @Column(nullable = false) private LocalDateTime updatedAt;
-    @LastModifiedBy @Column(nullable = false,length = 100) private String updatedBy;
 
     //constructor
     protected ArticleComment() {}
