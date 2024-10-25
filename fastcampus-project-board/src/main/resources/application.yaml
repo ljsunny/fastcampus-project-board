@@ -30,9 +30,6 @@ spring:
       hibernate.format_sql: true #한줄로 나오는 쿼리를 포멧팅해서 이쁘게 보여줌
       hibernate.default_batch_fetch_size: 100 #벌크로 가져오기 100개의 쿼리를 한개의 쿼리로
   sql.init.mode: always
-  h2:
-    console:
-      enabled: true
 
 --- ## 도큐먼트 새로 시작
 
