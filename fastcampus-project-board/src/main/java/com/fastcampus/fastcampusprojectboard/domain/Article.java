@@ -30,8 +30,8 @@ public class Article extends AuditingFields{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // 유저가 접근하지 못하도록 특정 항목만 setter줌
-    @Setter @Column(nullable = false, length = 1000) private String title; //제목
-    @Setter @Column(nullable = false, length = 10000) private String content; //내용
+    @Setter @Column(nullable = false) private String title; //제목
+    @Setter @Column(nullable = false, length = 500) private String content; //내용
     @Setter private String hashtag; //해시태그
 
     //순환참조 끊어줌. Article <-> ArticelComment 둘다 참조하고 있어서. 보통 Article 쪽에서 끊어줌
