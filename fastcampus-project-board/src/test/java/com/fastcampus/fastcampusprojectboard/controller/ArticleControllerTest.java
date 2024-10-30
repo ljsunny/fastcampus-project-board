@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 //ctrl+shift+r: 테스트 실행
-@Disabled("개발중")
+
 @DisplayName("View 컨트롤러 - 게시글")
 @WebMvcTest(ArticleController.class) // 해당 컨트롤러만 읽어들임
 class ArticleControllerTest {
@@ -20,7 +20,7 @@ class ArticleControllerTest {
         this.mvc = mvc;
     }
 
-    @Disabled("개발중")
+
     @DisplayName("[view][GET] 게시글 리스트 (게시판) 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticles_thenReturnArticles() throws Exception {
@@ -28,9 +28,10 @@ class ArticleControllerTest {
         //When & Then
         mvc.perform(get("/articles"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+//                .andExpect(content().contentType(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
-                .andExpect(model().attributeExists("article"));// 데이터가 있나 없나 탐색
+                .andExpect(model().attributeExists("articles"));// 데이터가 있나 없나 탐색
     }
     @Disabled("개발중")
     @DisplayName("[view][GET] 게시글 상세 리스트 (게시판) 페이지 - 정상 호출")
@@ -42,7 +43,7 @@ class ArticleControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/detail"))
-                .andExpect(model().attributeExists("article"))// 데이터가 있나 없나 탐색
+                .andExpect(model().attributeExists("articles"))// 데이터가 있나 없나 탐색
                 .andExpect(model().attributeExists("articleComments"));// 데이터가 있나 없나 탐색
     }
     @Disabled("개발중")

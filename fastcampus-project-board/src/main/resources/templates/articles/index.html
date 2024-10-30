@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Articles</title>
+</head>
+<body>
+shift + cmd + f9 : 리컴파일
+  <!-- Header -->
+  <header>
+    <hr/>
+  </header>
+  <!-- Main -->
+  <Main>
+    <form>
+      <label for="search-type" hidden="hidden">type</label>
+      <select id="search-type" name="search-type">
+        <option>title</option>
+        <option>content</option>
+        <option>ID</option>
+        <option>Nickname</option>
+        <option>Hashtag</option>
+      </select>
+      <label for="search-value" hidden="hidden"></label>
+      <input id="search-value" type="search" placeholder="search.." name="search-value">
+      <button type="submit">Search</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>title</th>
+          <th>hashtag</th>
+          <th>author</th>
+          <th>created date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>첫글</td>
+          <td>java</td>
+          <td>jsun</td>
+          <td>2024-10-30</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <nav>
+      <table>
+        <tr>
+          <td>Previous</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>next</td>
+        </tr>
+      </table>
+    </nav>
+  </Main>
+  <!-- Footer -->
+  <footer>
+    <hr/>
+  </footer>
+</body>
+</html>
