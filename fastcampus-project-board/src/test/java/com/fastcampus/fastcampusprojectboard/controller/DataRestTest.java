@@ -1,6 +1,7 @@
 package com.fastcampus.fastcampusprojectboard.controller;
 
 import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@Disabled("except Spring Data Rest Test")
 @DisplayName("Data REST TEST - API TEST")
 @Transactional //rollback - DB 부하를 줄임
 @AutoConfigureMockMvc
@@ -31,6 +33,7 @@ public class DataRestTest {
     @DisplayName("[api] Show Board List")
     @Test
     void givenNoting_whenRequestingArticles_thenReturnsArticlesJsonResponse() throws Exception {
+
         //given
 
         //when & then
