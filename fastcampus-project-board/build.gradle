@@ -22,6 +22,9 @@ configurations {
 repositories {
 	mavenCentral()
 }
+ext {
+	querydslVersion = '5.0.0'
+}
 
 dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
