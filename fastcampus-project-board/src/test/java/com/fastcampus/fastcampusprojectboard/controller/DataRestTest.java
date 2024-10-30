@@ -33,6 +33,7 @@ public class DataRestTest {
     @DisplayName("[api] Show Board List")
     @Test
     void givenNoting_whenRequestingArticles_thenReturnsArticlesJsonResponse() throws Exception {
+
         //given
 
         //when & then
