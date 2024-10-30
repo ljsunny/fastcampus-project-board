@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Articles</title>
@@ -7,9 +7,7 @@
 <body>
 shift + cmd + f9 : 리컴파일
   <!-- Header -->
-  <header>
-    <hr/>
-  </header>
+  <header th:replace="~{header :: header}"></header>
   <!-- Main -->
   <Main>
     <form>
@@ -58,8 +56,7 @@ shift + cmd + f9 : 리컴파일
     </nav>
   </Main>
   <!-- Footer -->
-  <footer>
-    <hr/>
-  </footer>
+<footer th:replace="~{footer :: footer}"></footer>
+
 </body>
 </html>
