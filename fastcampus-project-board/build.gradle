@@ -45,6 +45,9 @@ dependencies {
 	annotationProcessor 'com.github.therapi:therapi-runtime-javadoc-scribe:0.15.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	implementation 'org.hibernate.orm:hibernate-core:6.5.2.Final'
 
 	// queryDSL 설정
 	implementation "com.querydsl:querydsl-jpa:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
