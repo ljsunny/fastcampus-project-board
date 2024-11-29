@@ -22,6 +22,7 @@ spring:
     username: root
     password: test
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL 8 버전용 드라이버
+
   #    url: jdbc:h2:mem:testdb
   #    username: sa
   #    driver-class-name: org.h2.Driver
@@ -39,3 +40,7 @@ spring:
   data.rest:
     base-path: /api
     detection-strategy: annotated
+  thymeleaf3:
+    decoupled-logic: true
+
+
