@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Getter
-@ToString
+@ToString(callSuper = true)
 @Table(indexes = {
         @Index(columnList = "title"),
         @Index(columnList = "hashtag"),
@@ -21,28 +21,34 @@ public class Article extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Setter @ManyToOne(optional = false) private UserAccount userAccount; // 유저정보(ID)
     // 유저가 접근하지 못하도록 특정 항목만 setter줌
     @Setter @Column(nullable = false) private String title; //제목
-    @Setter @Column(nullable = false, length = 500) private String content; //내용
+    @Setter @Column(nullable = false, length = 1000) private String content; //내용
     @Setter private String hashtag; //해시태그
 
     //순환참조 끊어줌. Article <-> ArticelComment 둘다 참조하고 있어서. 보통 Article 쪽에서 끊어줌
     @ToString.Exclude
     //양방향 데이터, cascading: 댓글들 다 같이 삭제. 에디팅이 어려워서 삭제하는 경우도 있음
     //실무에서는 양방향 데이터 잘 안씀. 한쪽에서만 써주자
-    @OrderBy
+    @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "article", cascade =CascadeType.ALL ) private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
     protected Article() {}
 
-    private Article(String title, String content, String hashtag) {
+    private Article(
+                    UserAccount userAccount,
+                    String title,
+                    String content,
+                    String hashtag) {
+        this.userAccount = userAccount;
         this.title = title;
         this.content = content;
         this.hashtag = hashtag;
     }
 
-    public static Article of(String title, String content, String hashtag) {
-        return new Article(title, content,hashtag);
+    public static Article of(UserAccount userAccount, String title, String content, String hashtag) {
+        return new Article(userAccount, title, content,hashtag);
     }
 
     //리스트 넣거나 , 중복요소 제거, 동일성 동등성 검사 EqualsHashcode: 모든걸 비교하는 방법<= 이거 안씀
