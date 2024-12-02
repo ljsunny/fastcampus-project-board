@@ -10,7 +10,7 @@ import java.util.Objects;
 //출처: https://mangkyu.tistory.com/78 [MangKyu's Diary:티스토리]
 
 @Getter
-@ToString
+@ToString(callSuper = true)
 @Table(name = "ArticleComment", indexes = {
         @Index(columnList = "content"),
         @Index(columnList = "createdAt"),
@@ -23,6 +23,7 @@ public class ArticleComment extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Setter @ManyToOne(optional = false) private UserAccount userAccount; // 유저 정보 (ID)
     //여러개 - 한개,  optional=false : 필수값, cascade : none=> default
     @Setter @ManyToOne(optional = false) private Article article; //게시글 (ID)
     @Setter @Column(nullable = false,length = 500) private String content; //본문
@@ -31,13 +32,18 @@ public class ArticleComment extends AuditingFields{
     protected ArticleComment() {}
 
     //constructor for setting
-    private ArticleComment(Article article, String content) {
+    private ArticleComment(Article article,
+                           UserAccount userAccount,
+                           String content) {
         this.article = article;
+        this.userAccount = userAccount;
         this.content = content;
     }
     // public 으로 ArticleComment객체에 article과 content를 넣어줌
-    public ArticleComment of(Article article, String content) {
-        return new ArticleComment(article, content);
+    public ArticleComment of(Article article,
+                             UserAccount userAccount,
+                             String content) {
+        return new ArticleComment(article, userAccount,content);
     }
 
     //cmd+N(Generate) > equals 선택 > id로 equal 여부 확인
