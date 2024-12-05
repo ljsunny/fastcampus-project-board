@@ -40,7 +40,7 @@ public class ArticleComment extends AuditingFields{
         this.content = content;
     }
     // public 으로 ArticleComment객체에 article과 content를 넣어줌
-    public ArticleComment of(Article article,
+    public static ArticleComment of(Article article,
                              UserAccount userAccount,
                              String content) {
         return new ArticleComment(article, userAccount,content);
