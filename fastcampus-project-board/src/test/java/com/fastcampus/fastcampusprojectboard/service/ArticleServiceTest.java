@@ -39,18 +39,21 @@ public class ArticleServiceTest {
 //    페이지 네이션
 //    홈버튼 -> 게시판 페이지로 리다이렉션
 //    정렬
-    @DisplayName("검색어 없이 게시글을 검색하면, 게시글 페이지를 반환한다.")
-    @Test
-    void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage(){
-        //Given
-        Pageable pageable = Pageable.ofSize(20);
-        given(articleRepository.findAll(pageable)).willReturn(Page.empty());
-        //When
-        Page<ArticleDto> articles = articleService.searchArticles(null, null, pageable);
-        //Then
-        assertThat(articles).isEmpty();
-        then(articleRepository).should().findAll(pageable);
-    }
+@DisplayName("검색어 없이 게시글을 검색하면, 게시글 페이지를 반환한다.")
+@Test
+void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
+    // Given
+    Pageable pageable = Pageable.ofSize(20);
+    given(articleRepository.findAll(any(Pageable.class))).willReturn(Page.empty()); // any(Pageable.class) 사용
+
+    // When
+    Page<ArticleDto> articles = articleService.searchArticles(null, null, pageable);
+
+    // Then
+    assertThat(articles).isEmpty();
+    then(articleRepository).should().findAll(pageable); // findAll(pageable) 호출 검증
+}
+
     @DisplayName("검색어와 함께 게시글을 검색하면, 게시글 페이지를 반환한다.")
     @Test
     void givenSearchParameters_whenSearchingArticles_thenReturnsArticlePage() {
