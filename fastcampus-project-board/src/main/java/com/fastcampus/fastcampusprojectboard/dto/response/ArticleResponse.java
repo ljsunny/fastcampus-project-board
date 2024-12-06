@@ -19,7 +19,7 @@ public record ArticleResponse(
     public static ArticleResponse from(ArticleDto dto) {
         String nickname = dto.userAccountDto().nickname();
         if (nickname == null || nickname.isBlank()) {
-            nickname = dto.userAccountDto().userId();
+            nickname = dto.userAccountDto().userId(); // 닉네임을 보여주는데 없을 경우 아이디라도 보여줌
         }
         return new ArticleResponse(
                 dto.id(),
