@@ -2,8 +2,11 @@ package com.fastcampus.fastcampusprojectboard.controller;
 
 import com.fastcampus.fastcampusprojectboard.domain.type.SearchType;
 import com.fastcampus.fastcampusprojectboard.dto.ArticleWithCommentsDto;
+import com.fastcampus.fastcampusprojectboard.dto.response.ArticleResponse;
 import com.fastcampus.fastcampusprojectboard.dto.response.ArticleWithCommentsResponse;
 import com.fastcampus.fastcampusprojectboard.service.ArticleService;
+import com.fastcampus.fastcampusprojectboard.service.PaginationService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -20,9 +23,11 @@ import java.util.List;
     @Controller
     public class ArticleController {
         private final ArticleService articleService;
+        private final PaginationService paginationService;
 
-        public ArticleController(ArticleService articleService) {
+        public ArticleController(ArticleService articleService, PaginationService paginationService) {
             this.articleService = articleService;
+            this.paginationService = paginationService;
         }
 
         @GetMapping
@@ -31,7 +36,11 @@ import java.util.List;
                 @RequestParam(required = false) String searchValue,
                 @PageableDefault(size=10, sort="createdAt", direction = Sort.Direction.DESC) Pageable pageable, //한페이지에 10개씩, createAt으로 정렬
                 ModelMap map) {
-            map.addAttribute("articles", articleService.searchArticles(searchType,searchValue,pageable));
+            Page<ArticleResponse> articles = articleService.searchArticles(searchType,searchValue,pageable).map(ArticleResponse::from);
+            List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), articles.getTotalPages());
+
+            map.addAttribute("articles", articles);
+            map.addAttribute("paginationBarNumbers", barNumbers);
             return "articles/index";
         }
 
