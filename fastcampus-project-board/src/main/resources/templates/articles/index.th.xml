@@ -1,5 +1,15 @@
 <?xml version="1.0" ?>
 <thlogic>
-    <attr sel="#header" th:replace="header :: header" />
-    <attr sel="#footer" th:replace="footer :: footer" />
+    <attr sel="#header" th:replace="~{header :: header}" />
+    <attr sel="#footer" th:replace="~{footer :: footer}" />
+    <attr sel="#article-table">
+        <attr sel="tbody" th:remove="all-but-first"> <!--th:remove 첫번쨰 tr만 남기고 나머지 tr은 삭제-->
+            <attr sel="tr[0]" th:each="article : ${articles}"> <!-- 순환돔 -->
+                <attr sel="td.title/a" th:text="${article.title}" th:href="@{'/articles/' + ${article.id}}" /> <!-- sel="td.title/a" 안에 a를 선택-->
+                <attr sel="td.hashtag" th:text="${article.hashtag}" />
+                <attr sel="td.user-id" th:text="${article.userAccountDto.nickname}" />
+                <attr sel="td.created-at/time" th:datetime="${article.createdAt}" th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd')}" />
+            </attr>
+        </attr>
+    </attr>
 </thlogic>

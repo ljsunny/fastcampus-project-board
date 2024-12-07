@@ -29,7 +29,7 @@ import java.util.List;
         public String articles(
                 @RequestParam(required = false) SearchType searchType, //required =false : 필수아님
                 @RequestParam(required = false) String searchValue,
-                @PageableDefault(size=10, sort="createAt", direction = Sort.Direction.DESC) Pageable pageable, //한페이지에 10개씩, createAt으로 정렬
+                @PageableDefault(size=10, sort="createdAt", direction = Sort.Direction.DESC) Pageable pageable, //한페이지에 10개씩, createAt으로 정렬
                 ModelMap map) {
             map.addAttribute("articles", articleService.searchArticles(searchType,searchValue,pageable));
             return "articles/index";
