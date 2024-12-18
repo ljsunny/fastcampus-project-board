@@ -80,7 +80,8 @@ class ArticleControllerTest {
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles"))
-                .andExpect(model().attributeExists("searchTypes"));
+                .andExpect(model().attributeExists("searchTypes"))
+                .andExpect(model().attribute("searchTypes",SearchType.values()));
 
         then(articleService).should().searchArticles(eq(searchType), eq(searchValue), any(Pageable.class));
         then(paginationService).should().getPaginationBarNumbers(anyInt(), anyInt());
@@ -110,7 +111,8 @@ class ArticleControllerTest {
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles"))
-                .andExpect(model().attribute("paginationBarNumbers", barNumbers));
+                .andExpect(model().attribute("paginationBarNumbers", barNumbers))
+                .andExpect(model().attribute("searchTypes", SearchType.values()));
         then(articleService).should().searchArticles(null, null, pageable);
         then(paginationService).should().getPaginationBarNumbers(pageable.getPageNumber(), Page.empty().getTotalPages());
     }
@@ -141,18 +143,53 @@ class ArticleControllerTest {
         mvc.perform(get("/articles/search"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
-                .andExpect(model().attributeExists("articles/search"));// 데이터가 있나 없나 탐색
+                .andExpect(view().name("articles/search"));// 데이터가 있나 없나 탐색
     }
-    @Disabled("개발중")
-    @DisplayName("[view][GET] 게시글 검색 전용 페이지 - 정상 호출")
+    @DisplayName("[view][GET] 게시글 해시테그 검색 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticleHashtagSearchView_thenReturnArticleHashtagSearchView() throws Exception {
         //Given
+        List<String> hashtags = List.of("#java","#spring","#boot");
+        given(articleService.searchArticlesViaHashtag(eq(null),any(Pageable.class))).willReturn(Page.empty());
+        given(paginationService.getPaginationBarNumbers(anyInt(), anyInt())).willReturn(List.of(1,2,3,4,5));
+        given(articleService.getHashtags()).willReturn(hashtags);
         //When & Then
         mvc.perform(get("/articles/search-hashtag"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
-                .andExpect(model().attributeExists("articles/search-hashtag"));// 데이터가 있나 없나 탐색
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/search-hashtag"))// 데이터가 있나 없나 탐색
+                .andExpect(model().attribute("articles",Page.empty()))
+                .andExpect(model().attribute("hashtags",hashtags))
+                .andExpect(model().attributeExists("paginationBarNumbers"));
+
+        then(articleService).should().searchArticlesViaHashtag(eq(null), any(Pageable.class));
+        then(articleService).should().getHashtags();
+        then(paginationService).should().getPaginationBarNumbers(anyInt(), anyInt());
+
+    }
+
+    @DisplayName("[view][GET] 게시글 해시테그 검색 페이지 - 정상 호출, 해시테그 입력")
+    @Test
+    public void givenHashtag_whenRequestingArticleHashtagSearchView_thenReturnArticleHashtagSearchView() throws Exception {
+        //Given
+        String hashtag = "#java";
+        List<String> hashtags = List.of("#java","#spring","#boot");
+        given(articleService.searchArticlesViaHashtag(eq(hashtag),any(Pageable.class))).willReturn(Page.empty());
+        given(paginationService.getPaginationBarNumbers(anyInt(), anyInt())).willReturn(List.of(1,2,3,4,5));
+        given(articleService.getHashtags()).willReturn(hashtags);
+        //When & Then
+        mvc.perform(get("/articles/search-hashtag")
+                        .queryParam("searchValue",hashtag))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/search-hashtag"))// 데이터가 있나 없나 탐색
+                .andExpect(model().attribute("articles",Page.empty()))
+                .andExpect(model().attribute("hashtags",hashtags))
+                .andExpect(model().attributeExists("paginationBarNumbers"));
+
+        then(articleService).should().searchArticlesViaHashtag(eq(hashtag), any(Pageable.class));
+        then(articleService).should().getHashtags();
+        then(paginationService).should().getPaginationBarNumbers(anyInt(), anyInt());
     }
 
     private ArticleWithCommentsDto createArticleWithCommentsDto() {
