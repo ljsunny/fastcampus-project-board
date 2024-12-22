@@ -8,6 +8,7 @@ import com.fastcampus.fastcampusprojectboard.dto.response.ArticleResponse;
 import com.fastcampus.fastcampusprojectboard.dto.response.ArticleWithCommentsResponse;
 import com.fastcampus.fastcampusprojectboard.service.ArticleService;
 import com.fastcampus.fastcampusprojectboard.service.PaginationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -18,16 +19,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+    @RequiredArgsConstructor
     @RequestMapping("/articles")
     @Controller
     public class ArticleController {
         private final ArticleService articleService;
         private final PaginationService paginationService;
 
-        public ArticleController(ArticleService articleService, PaginationService paginationService) {
-            this.articleService = articleService;
-            this.paginationService = paginationService;
-        }
+//        public ArticleController(ArticleService articleService, PaginationService paginationService) {
+//            this.articleService = articleService;
+//            this.paginationService = paginationService;
+//        } @RequiredArgsConstructor 삽입시 auto import
 
         @GetMapping
         public String articles(
