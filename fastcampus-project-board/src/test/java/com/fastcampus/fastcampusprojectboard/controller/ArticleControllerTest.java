@@ -294,7 +294,6 @@ class ArticleControllerTest {
         then(articleService).should().deleteArticle(articleId);
     }
 
-    //Todo: 수정한 테스트코드 깃 #38에 반영하고 브렌치 바꿔서 강의 따라가기
 
     private ArticleDto createArticleDto() {
         return ArticleDto.of(
