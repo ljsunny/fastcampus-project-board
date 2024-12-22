@@ -1,8 +1,11 @@
 package com.fastcampus.fastcampusprojectboard.dto;
 
 import com.fastcampus.fastcampusprojectboard.domain.Article;
+import com.fastcampus.fastcampusprojectboard.domain.UserAccount;
 
 import java.time.LocalDateTime;
+
+import static com.fastcampus.fastcampusprojectboard.domain.QUserAccount.userAccount;
 
 /**
  * DTO (Data Transfer Object) for {@link com.fastcampus.fastcampusprojectboard.domain.Article}.
@@ -22,6 +25,11 @@ public record ArticleDto(
         LocalDateTime updatedAt,           // Timestamp of the last update to the article
         String updatedBy                   // Username or ID of the user who last updated the article
 ) {
+
+  public static ArticleDto of(UserAccountDto userAccountDto, String title, String content, String hashtag) {
+    return new ArticleDto(null, userAccountDto, title, content, hashtag, null, null, null, null);
+  }
+
   /**
    * Factory method to create an instance of ArticleDto with all fields.
    *
@@ -89,9 +97,9 @@ public record ArticleDto(
    *
    * @return An Article entity created from this DTO
    */
-  public Article toEntity() {
+  public Article toEntity(UserAccount userAccount) {
     return Article.of(
-            userAccountDto.toEntity(), // Converts the associated UserAccountDto back into its entity form
+            userAccount,
             title,
             content,
             hashtag

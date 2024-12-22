@@ -4,9 +4,9 @@ import com.fastcampus.fastcampusprojectboard.domain.Article;
 import com.fastcampus.fastcampusprojectboard.domain.UserAccount;
 import com.fastcampus.fastcampusprojectboard.domain.type.SearchType;
 import com.fastcampus.fastcampusprojectboard.dto.ArticleDto;
-import com.fastcampus.fastcampusprojectboard.dto.ArticleWithCommentsDto;
 import com.fastcampus.fastcampusprojectboard.dto.UserAccountDto;
 import com.fastcampus.fastcampusprojectboard.repository.ArticleRepository;
+import com.fastcampus.fastcampusprojectboard.repository.UserAccountRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -35,6 +34,7 @@ public class ArticleServiceTest {
     ArticleService articleService;
     @Mock
     private ArticleRepository articleRepository;
+    @Mock private UserAccountRepository userAccountRepository;
 
 //    각 게시글 페이지로 이동
 //    페이지 네이션
@@ -115,17 +115,17 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
     @Test
     void givenSearchParameters_whenSearchingArticle_thenReturnsArticleList(){
         // Given
-        Long articleId = 1L;
-        Article article = createArticle();
-        given(articleRepository.findById(articleId)).willReturn(Optional.of(article));
+        SearchType searchType = SearchType.TITLE;
+        String searchKeyword = "title";
+        Pageable pageable = Pageable.ofSize(20);
+        given(articleRepository.findByTitleContaining(searchKeyword, pageable)).willReturn(Page.empty());
+
         // When
-        ArticleWithCommentsDto dto = articleService.getArticle(articleId);
+        Page<ArticleDto> articles = articleService.searchArticles(searchType, searchKeyword, pageable);
+
         // Then
-        assertThat(dto)
-                .hasFieldOrPropertyWithValue("title", article.getTitle())
-                .hasFieldOrPropertyWithValue("content", article.getContent())
-                .hasFieldOrPropertyWithValue("hashtag", article.getHashtag());
-        then(articleRepository).should().findById(articleId);
+        assertThat(articles).isEmpty();
+        then(articleRepository).should().findByTitleContaining(searchKeyword, pageable);
     }
 
     @DisplayName("없는 게시글을 조회하면, 예외를 던진다.")
@@ -151,6 +151,7 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
     void givenArticleInfo_whenSavingArticle_thenSavesArticle(){
         //GIven
         ArticleDto dto = createArticleDto();
+        given(userAccountRepository.getReferenceById(dto.userAccountDto().userId())).willReturn(createUserAccount());
         given(articleRepository.save(any(Article.class))).willReturn(createArticle());
 
         //When
@@ -158,6 +159,7 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
         //sociable 테스트 : 여러단계의 레이어를 거쳐서 테스트
 
         //Then
+        then(userAccountRepository).should().getReferenceById(dto.userAccountDto().userId());
         then(articleRepository).should().save(any(Article.class));
     }
 
@@ -170,7 +172,7 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
         given(articleRepository.getReferenceById(dto.id())).willReturn(article);
 
         //When
-        articleService.updateArticle(dto);
+        articleService.updateArticle(dto.id(), dto);
         //sociable 테스트 : 여러단계의 레이어를 거쳐서 테스트
 
         //Then
@@ -188,7 +190,7 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
         ArticleDto dto = createArticleDto("새 타이틀", "새 내용", "#springboot");
         given(articleRepository.getReferenceById(dto.id())).willThrow(EntityNotFoundException.class);
         // When
-        articleService.updateArticle(dto);
+        articleService.updateArticle(dto.id(), dto);
         // Then
         then(articleRepository).should().getReferenceById(dto.id());
     }
@@ -243,7 +245,6 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                1L,
                 "uno",
                 "password",
                 "uno@mail.com",
