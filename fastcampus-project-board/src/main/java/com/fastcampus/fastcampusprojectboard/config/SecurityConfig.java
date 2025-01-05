@@ -50,6 +50,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder(); // 패스워드를 인코딩
     }
 }
