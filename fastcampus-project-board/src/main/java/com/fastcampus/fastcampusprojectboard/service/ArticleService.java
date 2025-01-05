@@ -66,19 +66,22 @@ public class ArticleService {
 
     public void updateArticle(Long articleId, ArticleDto dto) {
         try{
-            Article article = articleRepository.getReferenceById(articleId);
-            if(dto.title()!=null) {article.setTitle(dto.title());} // record를 사용할 시 getter setter 사용하지 않고 사용가능. 자바 14부터 반영
-            if(dto.content()!= null) {article.setContent(dto.content());}
-            article.setHashtag(dto.hashtag());
-            articleRepository.save(article);
+            Article article = articleRepository.getReferenceById(articleId); // 아티클 정보를 가져옴
+            UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId()); // 유저 정보를 가져옴
+
+            if (article.getUserAccount().equals(userAccount)) { // 유저가 같을 때만 업데이트
+                if (dto.title() != null) { article.setTitle(dto.title()); }
+                if (dto.content() != null) { article.setContent(dto.content()); }
+                article.setHashtag(dto.hashtag());
+            }
         }catch (EntityNotFoundException e) {
-            log.warn("게시글 업데이트 실패. 게시글을 찾을 수 없습니다 - dto: {}" ,dto);
+            log.warn("게시글 업데이트 실패. 게시글을 수정하는데 필요한 정보를 찾을 수 없습니다 - {}", e.getLocalizedMessage());
         }
 
     }
 
-    public void deleteArticle(long articleId) {
-        articleRepository.deleteById(articleId);
+    public void deleteArticle(long articleId, String userId) {
+        articleRepository.deleteByIdAndUserAccount_UserId(articleId, userId);
     }
 
     @Transactional( readOnly = true )

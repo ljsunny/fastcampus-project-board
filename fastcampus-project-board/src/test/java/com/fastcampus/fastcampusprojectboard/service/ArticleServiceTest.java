@@ -170,6 +170,7 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
         Article article = createArticle();
         ArticleDto dto = createArticleDto("새 타이틀", "새 내용", "#springboot");
         given(articleRepository.getReferenceById(dto.id())).willReturn(article);
+        given(userAccountRepository.getReferenceById(dto.userAccountDto().userId())).willReturn(dto.userAccountDto().toEntity());
 
         //When
         articleService.updateArticle(dto.id(), dto);
@@ -198,24 +199,24 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
     @DisplayName("게시글 id를 입력하면, 게시글을 삭제한다")
     @Test
     void givenArticleId_whenDeletingArticle_thenDeletesArticle(){
-        //GIven
+        // Given
         Long articleId = 1L;
-        willDoNothing().given(articleRepository).deleteById(articleId);
+        String userId = "jsun";
+        willDoNothing().given(articleRepository).deleteByIdAndUserAccount_UserId(articleId, userId);
 
-        //When
-        articleService.deleteArticle(1L);
-        //sociable 테스트 : 여러단계의 레이어를 거쳐서 테스트
+        // When
+        articleService.deleteArticle(1L, userId);
 
-        //Then
-        then(articleRepository).should().deleteById(articleId);
+        // Then
+        then(articleRepository).should().deleteByIdAndUserAccount_UserId(articleId, userId);
     }
 
     private UserAccount createUserAccount() {
         return UserAccount.of(
-                "uno",
+                "jsun",
                 "password",
-                "uno@email.com",
-                "Uno",
+                "jsun@email.com",
+                "jsun",
                 null
         );
     }
@@ -238,22 +239,22 @@ void givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage() {
                 content,
                 hashtag,
                 LocalDateTime.now(),
-                "Uno",
+                "jsun",
                 LocalDateTime.now(),
-                "Uno");
+                "jsun");
     }
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                "uno",
+                "jsun",
                 "password",
-                "uno@mail.com",
-                "Uno",
+                "jsun@mail.com",
+                "jsun",
                 "This is memo",
                 LocalDateTime.now(),
-                "uno",
+                "jsun",
                 LocalDateTime.now(),
-                "uno"
+                "jsun"
         );
     }
 }
