@@ -1,7 +1,6 @@
 package com.fastcampus.fastcampusprojectboard.repository;
 
 import com.fastcampus.fastcampusprojectboard.domain.ArticleComment;
-import com.fastcampus.fastcampusprojectboard.domain.QArticle;
 import com.fastcampus.fastcampusprojectboard.domain.QArticleComment;
 import com.querydsl.core.types.dsl.DateTimeExpression;
 import com.querydsl.core.types.dsl.StringExpression;
@@ -10,7 +9,6 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
 import org.springframework.data.querydsl.binding.QuerydslBindings;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -31,4 +29,6 @@ public interface ArticleCommentRepository extends
     }
 
     List<ArticleComment> findByArticle_Id(Long articleId);
+
+    void deleteByIdAndUserAccount_UserId(Long articleId, String userid);
 }

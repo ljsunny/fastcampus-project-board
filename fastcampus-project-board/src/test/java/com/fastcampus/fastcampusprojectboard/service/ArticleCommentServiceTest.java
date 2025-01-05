@@ -124,13 +124,14 @@ class ArticleCommentServiceTest {
     void givenArticleCommentId_whenDeletingArticleComment_thenDeletesArticleComment() {
         // Given
         Long articleCommentId = 1L;
-        willDoNothing().given(articleCommentRepository).deleteById(articleCommentId);
+        String userId = "jsun";
+        willDoNothing().given(articleCommentRepository).deleteByIdAndUserAccount_UserId(articleCommentId, userId);
 
         // When
-        sut.deleteArticleComment(articleCommentId);
+        sut.deleteArticleComment(articleCommentId, userId);
 
         // Then
-        then(articleCommentRepository).should().deleteById(articleCommentId);
+        then(articleCommentRepository).should().deleteByIdAndUserAccount_UserId(articleCommentId, userId);
     }
 
 
@@ -141,23 +142,23 @@ class ArticleCommentServiceTest {
                 createUserAccountDto(),
                 content,
                 LocalDateTime.now(),
-                "uno",
+                "jsun",
                 LocalDateTime.now(),
-                "uno"
+                "jsun"
         );
     }
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                "uno",
+                "jsun",
                 "password",
-                "uno@mail.com",
-                "Uno",
+                "jsun@mail.com",
+                "jsun",
                 "This is memo",
                 LocalDateTime.now(),
-                "uno",
+                "jsun",
                 LocalDateTime.now(),
-                "uno"
+                "jsun"
         );
     }
 
@@ -171,10 +172,10 @@ class ArticleCommentServiceTest {
 
     private UserAccount createUserAccount() {
         return UserAccount.of(
-                "uno",
+                "jsun",
                 "password",
-                "uno@email.com",
-                "Uno",
+                "jsun@email.com",
+                "jsun",
                 null
         );
     }
