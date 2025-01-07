@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -Dserver.port=$PORT -Dspring.profiles.active=heroku -jar build/libs/java-getting-started-gradle-1.0.0-SNAPSHOT.jar

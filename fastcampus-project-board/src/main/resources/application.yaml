@@ -44,3 +44,12 @@ spring:
     decoupled-logic: true
 
 
+
+---
+
+spring:
+  config.activate.on-profile: heroku
+  datasource:
+    url: ${JAWSDB_URL}
+  jpa.hibernate.ddl-auto: validate
+  sql.init.mode: always
