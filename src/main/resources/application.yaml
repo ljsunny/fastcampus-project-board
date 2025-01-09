@@ -30,7 +30,7 @@ spring:
     open-in-view: false
     defer-datasource-initialization: true # Test DB 생성 가능, resources 내 data.sql 로 초기화
     hibernate:
-      ddl-auto: update # create로 설정 시 데이터베이스를 재생성할 수 있음 (none 추천)
+      ddl-auto: create # create로 설정 시 데이터베이스를 재생성할 수 있음 (none 추천)
       show-sql: true # 실행되는 SQL 문을 로그로 출력
     properties:
       hibernate:
@@ -49,6 +49,8 @@ spring:
 
 spring:
   config.activate.on-profile: heroku
+  server:
+    port: ${PORT:8080}
   datasource:
     url: ${JAWSDB_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
