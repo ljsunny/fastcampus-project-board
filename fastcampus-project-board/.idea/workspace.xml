@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="15bb3ac9-bace-41a3-8e6e-05e0797bfab2" name="Changes" comment="#12 - application&#10;&#10;실행에 필요한 shortcut 주석 추가" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <option name="groupModules" value="false" />
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fastcampus-project-board" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fastcampus-project-board" type="f1a62948:ProjectNode" />
+                <item name="fastcampus-project-board" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fastcampus-project-board" type="f1a62948:ProjectNode" />
+                <item name="fastcampus-project-board" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fastcampus-project-board" type="f1a62948:ProjectNode" />
+                <item name="fastcampus-project-board" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="com.intellij.jpb.NewClass" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="com.intellij.jpb.NewRecord" />
+        <option value="JUnit5 Test Class" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ljsunny&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1736408849" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ljsunny/fastcampus-project-board.git&quot;,
+    &quot;accountId&quot;: &quot;86d797aa-1f41-4e10-9818-0df110dff9e1&quot;
+  }
+}</component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2MfqHDiDy6b9WAQRJKQsBWeoNW6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY&quot;: &quot;true&quot;,
+    &quot;Gradle.ArticleCommentControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleCommentControllerTest.givenArticleCommentIdToDelete_whenRequesting_thenDeletesArticleComment.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleCommentServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleCommentServiceTest.givenArticleCommentInfo_whenSavingArticleComment_thenSavesArticleComment.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleCommentServiceTest.givenArticleId_whenSearchingArticleComments_thenReturnArticleComments.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleCommentServiceTest.givenArticleId_whenSearchingArticleComments_thenReturnsArticleComments.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleControllerTest.givenHashtag_whenRequestingArticleHashtagSearchView_thenReturnArticleHashtagSearchView.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleControllerTest.givenNothing_whenRequestingArticleView_thenReturnsArticleView.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleControllerTest.givenNothing_whenRequestingArticlesView_thenReturnsArticlesView.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleControllerTest.givenSearchKeyword_whenSearchingArticlesView_thenReturnsArticlesView.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenArticleId_whenSearchingArticles_thenReturnsArticleList.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenArticleInfo_whenSavingArticle_thenSavesArticle.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenNoSearchParameter_whenSearchingArticles_thenReturnsArticlePage.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenNonexistentArticleId_whenSearchingArticle_thenThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenNonexistentArticleInfo_whenUpdatingArticle_thenLogsWarningAndDoesNothing.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenSearchParameters_whenSearchingArticle_thenReturnsArticleList.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenSearchParameters_whenSearchingArticles_thenReturnsArticleList.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ArticleServiceTest.givenSearchParameters_whenSearchingArticles_thenReturnsArticlePage.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build fastcampus-project-board.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DataRestTest.givenNothing_whenRequestingUserAccounts_thenThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DataRestTest.givenNoting_whenRequestingArticleComment_thenReturnsArticleCommentJsonResponse.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DataRestTest.givenNoting_whenRequestingArticleComments_thenReturnsArticleCommentsJsonResponse.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DataRestTest.givenNoting_whenRequestingSingleArticles_thenReturnsArticlesJsonResponse.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DataRestTest.test.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FastcampusProjectBoardApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FastcampusProjectBoardApplicationTests.givenTestData_whenDelete_thenWorksFine.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FastcampusProjectBoardApplicationTests.givenTestData_whenInserting_thenWorksFine.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FastcampusProjectBoardApplicationTests.givenTestData_whenSelecting_thenWorksFine.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FastcampusProjectBoardApplicationTests.givenTestData_whenUpdate_thenWorksFine.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FormDataEncoderTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JpaRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JpaRepositoryTest.givenTestData_whenInserting_thenWorksFine.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JpaRepositoryTest.givenTestData_whenSelecting_thenWorksFine (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JpaRepositoryTest.givenTestData_whenSelecting_thenWorksFine.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MainControllerTest.givenRootPath_whenRequestingRootPage_thenRedirectsToArticlesPage.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PaginationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'fastcampus-project-board'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'fastcampus-project-board.test'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.fastcampus-project-board [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.fastcampus-project-board [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.fastcampus-project-board [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.FastCampusProjectBoardApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.FastcampusProjectBoardApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;&lt;unknown&gt;&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jsun/develop/study/fastcampus-project-board/fastcampus-project-board/src/main/resources/templates/articles&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.jpb.dtoDeclaration&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b78f958aa2c5a00b03fa5e3f0cd3b8e7&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;MySQL&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/articles" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.fastcampus.fastcampusprojectboard.controller" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.fastcampus-project-board [build]">
+    <configuration name="ArticleCommentControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.fastcampus.fastcampusprojectboard.controller.ArticleCommentControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ArticleServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.fastcampus.fastcampusprojectboard.service.ArticleServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="fastcampus-project-board [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="fastcampus-project-board [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="fastcampus-project-board [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FastCampusProjectBoardApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="fastcampus-project-board.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.fastcampus.fastcampusprojectboard.FastCampusProjectBoardApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.fastcampus-project-board [build]" />
+        <item itemvalue="Gradle.fastcampus-project-board [clean]" />
+        <item itemvalue="Gradle.fastcampus-project-board [buildDependents]" />
+        <item itemvalue="Gradle.ArticleCommentControllerTest" />
+        <item itemvalue="Gradle.ArticleServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15bb3ac9-bace-41a3-8e6e-05e0797bfab2" name="Changes" comment="" />
+      <created>1678168895497</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678168895497</updated>
+      <workItem from="1678168898065" duration="21487000" />
+      <workItem from="1678757634350" duration="596000" />
+      <workItem from="1678978121318" duration="2236000" />
+      <workItem from="1679384475597" duration="2882000" />
+      <workItem from="1679387377283" duration="14111000" />
+      <workItem from="1682297463155" duration="81020000" />
+      <workItem from="1697606678697" duration="3297000" />
+      <workItem from="1698939439999" duration="97000" />
+      <workItem from="1698939571466" duration="266000" />
+      <workItem from="1698939868992" duration="180000" />
+      <workItem from="1698940061445" duration="125000" />
+      <workItem from="1698940453445" duration="2457000" />
+      <workItem from="1702103686877" duration="713000" />
+      <workItem from="1702104512118" duration="228000" />
+      <workItem from="1702104747360" duration="731000" />
+      <workItem from="1727757444689" duration="10837000" />
+      <workItem from="1727769435637" duration="6504000" />
+      <workItem from="1727938259084" duration="11988000" />
+      <workItem from="1729868363206" duration="13843000" />
+      <workItem from="1730170550345" duration="40643000" />
+      <workItem from="1731049439520" duration="5323000" />
+      <workItem from="1731055318741" duration="14357000" />
+      <workItem from="1731469524252" duration="7941000" />
+      <workItem from="1731919885857" duration="215355000" />
+      <workItem from="1736409233728" duration="331000" />
+    </task>
+    <task id="LOCAL-00001" summary="#10 - Spring Data Jpa 속성 설정&#10;* jpa auditing 기능을 쓰기 위해 'jpaConfig 추가'&#10;* db 접근과 개발 편의를 위한 각종 부트 프로퍼티 적용&#10;*TODO: 패스워드 프로퍼티에 노출시켰다. 처리필요.">
+      <option name="closed" value="true" />
+      <created>1727774292513</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727774292513</updated>
+    </task>
+    <task id="LOCAL-00002" summary="#12 - 도메인 코드를 엔티티로 변환&#10;1 도메인 클래스 == 1 테이블 매칭되도록 설계한다.&#10;생성자와 equals(), hashcode() 등이 도메인 맥락에 맞게끔 디테일하게 설정함">
+      <option name="closed" value="true" />
+      <created>1727774379234</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727774379235</updated>
+    </task>
+    <task id="LOCAL-00003" summary="#12 - repository interface작성&#10;이걸로 db에 접근">
+      <option name="closed" value="true" />
+      <created>1727774453822</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727774453822</updated>
+    </task>
+    <task id="LOCAL-00004" summary="#12 - jpa test 작성&#10;보려고 작성.&#10;crud 테스트">
+      <option name="closed" value="true" />
+      <created>1727774515409</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727774515409</updated>
+    </task>
+    <task id="LOCAL-00005" summary="#12 - application&#10;&#10;실행에 필요한 shortcut 주석 추가">
+      <option name="closed" value="true" />
+      <created>1727774539544</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727774539544</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="#10 - Spring Data Jpa 속성 설정&#10;* jpa auditing 기능을 쓰기 위해 'jpaConfig 추가'&#10;* db 접근과 개발 편의를 위한 각종 부트 프로퍼티 적용&#10;*TODO: 패스워드 프로퍼티에 노출시켰다. 처리필요." />
+    <MESSAGE value="#12 - 도메인 코드를 엔티티로 변환&#10;1 도메인 클래스 == 1 테이블 매칭되도록 설계한다.&#10;생성자와 equals(), hashcode() 등이 도메인 맥락에 맞게끔 디테일하게 설정함" />
+    <MESSAGE value="#12 - repository interface작성&#10;이걸로 db에 접근" />
+    <MESSAGE value="#12 - jpa test 작성&#10;보려고 작성.&#10;crud 테스트" />
+    <MESSAGE value="#12 - application&#10;&#10;실행에 필요한 shortcut 주석 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="#12 - application&#10;&#10;실행에 필요한 shortcut 주석 추가" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/fastcampus/fastcampusprojectboard/service/PaginationServiceTest.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
