@@ -90,6 +90,6 @@ clean {
 // Heroku 설정
 jar {
 	manifest {
-		attributes('Main-Class': 'com.fastcampus.fastcampusprojectboard.FastcampusProjectBoardApplication')
+		attributes('Main-Class': 'com.fastcampus.fastcampusprojectboard.FastCampusProjectBoardApplication')
 	}
 }
