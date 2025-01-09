@@ -51,5 +51,6 @@ spring:
   config.activate.on-profile: heroku
   datasource:
     url: ${JAWSDB_URL}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa.hibernate.ddl-auto: validate
   sql.init.mode: always
