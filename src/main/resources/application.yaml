@@ -29,19 +29,16 @@ spring:
   jpa:
     open-in-view: false
     defer-datasource-initialization: true # Test DB 생성 가능, resources 내 data.sql 로 초기화
-    hibernate:
-      ddl-auto: create # create로 설정 시 데이터베이스를 재생성할 수 있음 (none 추천)
-      show-sql: true # 실행되는 SQL 문을 로그로 출력
+    hibernate.ddl-auto: create # create로 설정 시 데이터베이스를 재생성할 수 있음 (none 추천)
+    show-sql: true # 실행되는 SQL 문을 로그로 출력
     properties:
-      hibernate:
-        format_sql: true # 포맷된 SQL 로그 출력
-        default_batch_fetch_size: 100 # 벌크 데이터 가져오기 최적화
+      hibernate.format_sql: true # 포맷된 SQL 로그 출력
+      hibernate.default_batch_fetch_size: 100 # 벌크 데이터 가져오기 최적화
   sql.init.mode: always
   data.rest:
     base-path: /api
     detection-strategy: annotated
-  thymeleaf3:
-    decoupled-logic: true
+  thymeleaf3.decoupled-logic: true
 
 
 
@@ -52,5 +49,5 @@ spring:
   datasource:
     url: ${JAWSDB_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa.hibernate.ddl-auto: validate
+  jpa.hibernate.ddl-auto: create
   sql.init.mode: always
