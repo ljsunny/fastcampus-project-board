@@ -30,17 +30,10 @@ public class SecurityConfig {
                                     "/articles/search-hashtag"
                                 ).permitAll().anyRequest().authenticated()
                 )
-                .formLogin(config -> config
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/")
-                        .permitAll()
-                )
-                .logout(config -> config
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
-                        .invalidateHttpSession(true)
-                        .deleteCookies("JSESSIONID")
-                )
+                .formLogin().and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .and()
                 .build();
 //                .formLogin(Customizer.withDefaults()); // 새로운 방식으로 formLogin 구성
 
