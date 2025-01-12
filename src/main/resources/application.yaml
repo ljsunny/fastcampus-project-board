@@ -18,10 +18,9 @@ logging:
 ## Spring 설정
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/board
-    username: root
-    password: test
-    driver-class-name: com.mysql.cj.jdbc.Driver # MySQL 8 버전용 드라이버
+    url: jdbc:postgresql://localhost:5432/board
+    username: jsun
+    password: 1234
 
   #    url: jdbc:h2:mem:testdb
   #    username: sa
