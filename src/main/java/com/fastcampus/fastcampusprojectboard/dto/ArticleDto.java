@@ -4,6 +4,8 @@ import com.fastcampus.fastcampusprojectboard.domain.Article;
 import com.fastcampus.fastcampusprojectboard.domain.UserAccount;
 
 import java.time.LocalDateTime;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static com.fastcampus.fastcampusprojectboard.domain.QUserAccount.userAccount;
 
@@ -15,55 +17,23 @@ import static com.fastcampus.fastcampusprojectboard.domain.QUserAccount.userAcco
  * between the domain model and the view model.
  */
 public record ArticleDto(
-        Long id,                           // The unique identifier for the article
-        UserAccountDto userAccountDto,     // User account details associated with the article
-        String title,                      // Title of the article
-        String content,                    // Content/body of the article
-        String hashtag,                    // Hashtag(s) associated with the article
-        LocalDateTime createdAt,           // Timestamp of when the article was created
-        String createdBy,                  // Username or ID of the user who created the article
-        LocalDateTime updatedAt,           // Timestamp of the last update to the article
-        String updatedBy                   // Username or ID of the user who last updated the article
+        Long id,
+        UserAccountDto userAccountDto,
+        String title,
+        String content,
+        Set<HashtagDto> hashtagDtos,
+        LocalDateTime createdAt,
+        String createdBy,
+        LocalDateTime updatedAt,
+        String updatedBy
 ) {
 
-  public static ArticleDto of(UserAccountDto userAccountDto, String title, String content, String hashtag) {
-    return new ArticleDto(null, userAccountDto, title, content, hashtag, null, null, null, null);
+  public static ArticleDto of(UserAccountDto userAccountDto, String title, String content, Set<HashtagDto> hashtagDtos) {
+    return new ArticleDto(null, userAccountDto, title, content, hashtagDtos, null, null, null, null);
   }
 
-  /**
-   * Factory method to create an instance of ArticleDto with all fields.
-   *
-   * @param id             The unique identifier for the article
-   * @param userAccountDto The DTO for the associated user account
-   * @param title          The title of the article
-   * @param content        The content of the article
-   * @param hashtag        Hashtag(s) for the article
-   * @param createdAt      The timestamp of article creation
-   * @param createdBy      The username of the creator
-   * @param updatedAt      The timestamp of the last update
-   * @param updatedBy      The username of the last updater
-   * @return A new instance of ArticleDto
-   */
-  public static ArticleDto of(Long id,
-                              UserAccountDto userAccountDto,
-                              String title,
-                              String content,
-                              String hashtag,
-                              LocalDateTime createdAt,
-                              String createdBy,
-                              LocalDateTime updatedAt,
-                              String updatedBy) {
-    return new ArticleDto(
-            id,
-            userAccountDto,
-            title,
-            content,
-            hashtag,
-            createdAt,
-            createdBy,
-            updatedAt,
-            updatedBy
-    );
+  public static ArticleDto of(Long id, UserAccountDto userAccountDto, String title, String content, Set<HashtagDto> hashtagDtos, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+    return new ArticleDto(id, userAccountDto, title, content, hashtagDtos, createdAt, createdBy, updatedAt, updatedBy);
   }
 
   /**
@@ -78,10 +48,13 @@ public record ArticleDto(
   public static ArticleDto from(Article entity) {
     return new ArticleDto(
             entity.getId(),
-            UserAccountDto.from(entity.getUserAccount()), // Converts the associated UserAccount entity to its DTO
+            UserAccountDto.from(entity.getUserAccount()),
             entity.getTitle(),
             entity.getContent(),
-            entity.getHashtag(),
+            entity.getHashtags().stream()
+                    .map(HashtagDto::from)
+                    .collect(Collectors.toUnmodifiableSet())
+            ,
             entity.getCreatedAt(),
             entity.getCreatedBy(),
             entity.getUpdatedAt(),
@@ -101,8 +74,7 @@ public record ArticleDto(
     return Article.of(
             userAccount,
             title,
-            content,
-            hashtag
+            content
     );
   }
 }
