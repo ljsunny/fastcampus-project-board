@@ -18,25 +18,23 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-//                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()) // 모든 경로 허용
                 .authorizeHttpRequests(auth -> auth
-                                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() //정적파일
-                                .requestMatchers( // antMatcher == mvcMathers == requestMatcher(security6부터 대체됨)
-                                    HttpMethod.GET,
-                                    "/",
-                                    "/articles",
-                                    "/articles/search-hashtag"
-                                ).permitAll().anyRequest().authenticated()
+                        .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/",
+                                "/articles",
+                                "/articles/search-hashtag"
+                        ).permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin().and()
                 .logout()
                 .logoutSuccessUrl("/")
                 .and()
                 .build();
-//                .formLogin(Customizer.withDefaults()); // 새로운 방식으로 formLogin 구성
-
     }
 
     @Bean
@@ -50,6 +48,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder(); // 패스워드를 인코딩
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 }
