@@ -31,8 +31,8 @@ public class ArticleComment extends AuditingFields{
     @Setter @ManyToOne(optional = false) private Article article; //게시글 (ID)
 
     @Setter
-    @ManyToOne(optional = false)
     @JoinColumn(name = "userId")
+    @ManyToOne(optional = false)
     private UserAccount userAccount; // 유저 정보 (ID)
 
     @Setter
@@ -76,9 +76,8 @@ public class ArticleComment extends AuditingFields{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ArticleComment that = (ArticleComment) o;
-        return id != null && id.equals(that.getId());
+        if (!(o instanceof ArticleComment that)) return false;
+        return this.getId() != null && this.getId().equals(that.getId());
     }
 
     @Override
