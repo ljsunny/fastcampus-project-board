@@ -1,7 +1,9 @@
 package com.fastcampus.fastcampusprojectboard.config;
 
 import com.fastcampus.fastcampusprojectboard.domain.UserAccount;
+import com.fastcampus.fastcampusprojectboard.dto.UserAccountDto;
 import com.fastcampus.fastcampusprojectboard.repository.UserAccountRepository;
+import com.fastcampus.fastcampusprojectboard.service.UserAccountService;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.event.annotation.BeforeTestMethod;
@@ -13,17 +15,25 @@ import static org.mockito.BDDMockito.*;
 
 @Import(SecurityConfig.class)
 public class TestSecurityConfig {
-    @MockBean private UserAccountRepository userAccountRepository;
 
-    @BeforeTestMethod //인증 테스트를 할때에만 호출, 각종 시큐리티가 필요한 곳에 넣어주면됨
-    public void securitySetup() {
-        given(userAccountRepository.findById(anyString())).willReturn(Optional.of(UserAccount.of(
-                "jsunTest", // 여기에 있는 정보를 @WithUserDetails 에서 읽음
+    @MockBean private UserAccountService userAccountService;
+
+    @BeforeTestMethod
+    public void securitySetUp() {
+        given(userAccountService.searchUser(anyString()))
+                .willReturn(Optional.of(createUserAccountDto()));
+        given(userAccountService.saveUser(anyString(), anyString(), anyString(), anyString(), anyString()))
+                .willReturn(createUserAccountDto());
+    }
+
+
+    private UserAccountDto createUserAccountDto() {
+        return UserAccountDto.of(
+                "jsunTest",
                 "pw",
                 "jsun-test@email.com",
                 "jsun-test",
                 "test memo"
-        )));
-
+        );
     }
 }
