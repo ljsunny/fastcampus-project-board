@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.fastcampus.fastcampusprojectboard.domain.QUserAccount.userAccount;
 
 /**
  * DTO (Data Transfer Object) for {@link com.fastcampus.fastcampusprojectboard.domain.Article}.
