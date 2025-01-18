@@ -17,11 +17,11 @@ public record ArticleWithCommentsDto(
         Set<HashtagDto> hashtagDtos,
         LocalDateTime createdAt,
         String createdBy,
-        LocalDateTime modifiedAt,
-        String modifiedBy
+        LocalDateTime updatedAt,
+        String updatedBy
 ) {
-    public static ArticleWithCommentsDto of(Long id, UserAccountDto userAccountDto, Set<ArticleCommentDto> articleCommentDtos, String title, String content, Set<HashtagDto> hashtagDtos, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
-        return new ArticleWithCommentsDto(id, userAccountDto, articleCommentDtos, title, content, hashtagDtos, createdAt, createdBy, modifiedAt, modifiedBy);
+    public static ArticleWithCommentsDto of(Long id, UserAccountDto userAccountDto, Set<ArticleCommentDto> articleCommentDtos, String title, String content, Set<HashtagDto> hashtagDtos, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+        return new ArticleWithCommentsDto(id, userAccountDto, articleCommentDtos, title, content, hashtagDtos, createdAt, createdBy, updatedAt, updatedBy);
     }
 
     public static ArticleWithCommentsDto from(Article entity) {

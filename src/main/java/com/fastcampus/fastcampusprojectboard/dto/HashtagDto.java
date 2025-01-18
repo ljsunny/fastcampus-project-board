@@ -9,16 +9,16 @@ public record HashtagDto(
         String hashtagName,
         LocalDateTime createdAt,
         String createdBy,
-        LocalDateTime modifiedAt,
-        String modifiedBy
+        LocalDateTime updatedAt,
+        String updatedBy
 ) {
 
     public static HashtagDto of(String hashtagName) {
         return new HashtagDto(null, hashtagName, null, null, null, null);
     }
 
-    public static HashtagDto of(Long id, String hashtagName, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
-        return new HashtagDto(id, hashtagName, createdAt, createdBy, modifiedAt, modifiedBy);
+    public static HashtagDto of(Long id, String hashtagName, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+        return new HashtagDto(id, hashtagName, createdAt, createdBy, updatedAt, updatedBy);
     }
 
     public static HashtagDto from(Hashtag entity) {

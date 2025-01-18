@@ -12,15 +12,15 @@ public record UserAccountDto(
         String memo,
         LocalDateTime createdAt,
         String createdBy,
-        LocalDateTime modifiedAt,
-        String modifiedBy
+        LocalDateTime updatedAt,
+        String updatedBy
 ) {
     public static UserAccountDto of(String userId, String userPassword, String email, String nickname, String memo) {
         return new UserAccountDto(userId, userPassword, email, nickname, memo, null, null, null, null);
     }
 
-    public static UserAccountDto of(String userId, String userPassword, String email, String nickname, String memo, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
-        return new UserAccountDto(userId, userPassword, email, nickname, memo, createdAt, createdBy, modifiedAt, modifiedBy);
+    public static UserAccountDto of(String userId, String userPassword, String email, String nickname, String memo, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+        return new UserAccountDto(userId, userPassword, email, nickname, memo, createdAt, createdBy, updatedAt, updatedBy);
     }
 
     public static UserAccountDto from(UserAccount entity) {

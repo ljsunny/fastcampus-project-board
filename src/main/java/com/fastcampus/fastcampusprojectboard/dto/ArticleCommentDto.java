@@ -30,8 +30,8 @@ public record ArticleCommentDto(
     return ArticleCommentDto.of(null, articleId, userAccountDto, parentCommentId, content, null, null, null, null);
   }
 
-  public static ArticleCommentDto of(Long id, Long articleId, UserAccountDto userAccountDto, Long parentCommentId, String content, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
-    return new ArticleCommentDto(id, articleId, userAccountDto, parentCommentId, content, createdAt, createdBy, modifiedAt, modifiedBy);
+  public static ArticleCommentDto of(Long id, Long articleId, UserAccountDto userAccountDto, Long parentCommentId, String content, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+    return new ArticleCommentDto(id, articleId, userAccountDto, parentCommentId, content, createdAt, createdBy, updatedAt, updatedBy);
   }
 
   public static ArticleCommentDto from(ArticleComment entity) {
