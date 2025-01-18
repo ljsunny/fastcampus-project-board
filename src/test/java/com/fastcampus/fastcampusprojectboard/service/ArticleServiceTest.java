@@ -229,7 +229,7 @@ class ArticleServiceTest {
 
     @DisplayName("게시글의 수정 정보를 입력하면, 게시글을 수정한다.")
     @Test
-    void givenModifiedArticleInfo_whenUpdatingArticle_thenUpdatesArticle() {
+    void givenUpdatedArticleInfo_whenUpdatingArticle_thenUpdatesArticle() {
         // Given
         Article article = createArticle();
         ArticleDto dto = createArticleDto("새 타이틀", "새 내용 #springboot");
@@ -281,7 +281,7 @@ class ArticleServiceTest {
 
     @DisplayName("게시글 작성자가 아닌 사람이 수정 정보를 입력하면, 아무 것도 하지 않는다.")
     @Test
-    void givenModifiedArticleInfoWithDifferentUser_whenUpdatingArticle_thenDoesNothing() {
+    void givenUpdatedArticleInfoWithDifferentUser_whenUpdatingArticle_thenDoesNothing() {
         // Given
         Long differentArticleId = 22L;
         Article differentArticle = createArticle(differentArticleId);

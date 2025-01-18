@@ -79,7 +79,7 @@ class UserAccountServiceTest {
                 .hasFieldOrPropertyWithValue("nickname", userAccount.getNickname())
                 .hasFieldOrPropertyWithValue("memo", userAccount.getMemo())
                 .hasFieldOrPropertyWithValue("createdBy", userAccount.getUserId())
-                .hasFieldOrPropertyWithValue("modifiedBy", userAccount.getUserId());
+                .hasFieldOrPropertyWithValue("updatedBy", userAccount.getUserId());
         then(userAccountRepository).should().save(userAccount);
     }
 
