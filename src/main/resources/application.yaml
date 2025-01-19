@@ -66,14 +66,3 @@ spring:
   sql.init.mode: always
 
 
----
-spring:
-  datasource:
-    url: jdbc:h2:mem:testdb  # In-memory H2 database
-    driver-class-name: org.h2.Driver
-    username: sa  # Default username for H2
-    password:     # Default password is blank
-  h2:
-    console:
-      enabled: true  # Enable H2 console
-      path: /h2-console  # Access H2 console at /h2-console
