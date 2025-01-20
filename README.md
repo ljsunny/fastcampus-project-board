@@ -1,4 +1,4 @@
-Bulletin Board Service - FastCampus, Backend Web Development with 10 Projects
+###Bulletin Board Service - FastCampus, Backend Web Development with 10 Projects
 
 This service showcases the most basic and universal features of a bulletin board.It was used as a lecture project for the FastCampus course, Backend Web Development with 10 Projects (Java/Spring) Ultra-Package Online.
 
